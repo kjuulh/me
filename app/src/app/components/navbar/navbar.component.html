@@ -1,3 +1,15 @@
 <nav id="navbar">
-  <div class="content" [ngClass]="{ static: static }"></div>
+  <div class="content" [ngClass]="{ static: static }">
+    <div class="container">
+      <img src="/assets/Vector.svg" alt="logo" class="logo" />
+      <ul *ngIf="!menu">
+        <li>About</li>
+        <li>Projects</li>
+        <li>Contact</li>
+      </ul>
+      <div *ngIf="menu" class="menu">
+        <div class="breaker"></div>
+      </div>
+    </div>
+  </div>
 </nav>

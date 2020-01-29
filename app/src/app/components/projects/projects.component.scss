@@ -1,5 +1,7 @@
+@import "styles/colors";
+
 #projects {
   height: 100vh;
 
-  background: lime;
+  background: lighten($secondary, 2);
 }

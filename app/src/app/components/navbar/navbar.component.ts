@@ -14,6 +14,7 @@ import {
 })
 export class NavbarComponent implements OnInit {
   static: boolean;
+  menu = false;
 
   constructor(public el: ElementRef) {}
 
@@ -24,10 +25,19 @@ export class NavbarComponent implements OnInit {
     const componentPos = this.el.nativeElement.offsetTop;
     const scrollPos = window.pageYOffset;
 
-    if (scrollPos >= componentPos) {
+    if (scrollPos > componentPos) {
       this.static = true;
     } else {
       this.static = false;
+    }
+  }
+
+  @HostListener("window:resize", ["$event"])
+  onResize(event) {
+    if (event.target.innerWidth > 600) {
+      this.menu = false;
+    } else {
+      this.menu = true;
     }
   }
 }
