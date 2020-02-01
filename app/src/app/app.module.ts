@@ -12,7 +12,9 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { AboutComponent } from "./components/about/about.component";
 import { BadgeComponent } from "./components/badge/badge.component";
 import { CanvasComponent } from "./components/canvas/canvas.component";
-import { MenuButtonComponent } from './components/menu-button/menu-button.component';
+import { MenuButtonComponent } from "./components/menu-button/menu-button.component";
+
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { MenuButtonComponent } from './components/menu-button/menu-button.compon
     MaterialModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
