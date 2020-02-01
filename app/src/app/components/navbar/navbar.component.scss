@@ -42,6 +42,16 @@
     margin-left: 20px;
     text-transform: uppercase;
     color: $primary;
+    cursor: pointer;
+    transition: 300ms color;
+
+    &:hover {
+      color: $accent;
+    }
+
+    &:active {
+      color: $alt-accent;
+    }
   }
 }
 
