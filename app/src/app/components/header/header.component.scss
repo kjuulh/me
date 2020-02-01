@@ -1,9 +1,9 @@
 @import "styles/colors";
 
-#header {
+.header {
   height: 100vh;
 
-  .center {
+  &__container {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -15,40 +15,40 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+  }
 
-    .cta {
-      margin: 0;
-      font-size: 42px;
-      font-weight: 300;
-      color: $primary;
-      z-index: 10;
+  &__headline {
+    margin: 0;
+    font-size: 42px;
+    font-weight: 300;
+    color: $primary;
+    z-index: 10;
+  }
 
-      .name {
-        color: $accent;
-        font-weight: 400;
-      }
+  &__name {
+    color: $accent;
+    font-weight: 400;
+  }
+
+  &__button {
+    margin-top: 50px;
+    height: 50px;
+    width: 50px;
+    outline: none;
+    border-radius: 50px;
+    border: 1px solid $primary;
+    background: none;
+    z-index: 10;
+    transition: 300ms background;
+    color: $primary;
+
+    &:hover {
+      background: $accent;
     }
 
-    button {
-      margin-top: 50px;
-      height: 50px;
-      width: 50px;
-      outline: none;
-      border-radius: 50px;
-      border: 1px solid $primary;
-      background: none;
-      z-index: 10;
-      transition: 300ms background;
-      color: $primary;
-
-      &:hover {
-        background: $accent;
-      }
-
-      &:active {
-        background: $alt-accent;
-        border: none;
-      }
+    &:active {
+      background: $alt-accent;
+      border: none;
     }
   }
 }

@@ -18,7 +18,9 @@ export class NavbarComponent implements OnInit {
 
   constructor(public el: ElementRef) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.checkResize(window.innerWidth);
+  }
 
   @HostListener("window:scroll", ["$event"])
   checkScroll() {
@@ -34,7 +36,11 @@ export class NavbarComponent implements OnInit {
 
   @HostListener("window:resize", ["$event"])
   onResize(event) {
-    if (event.target.innerWidth > 600) {
+    this.checkResize(event.target.innerWidth);
+  }
+
+  checkResize(width) {
+    if (width > 600) {
       this.menu = false;
     } else {
       this.menu = true;

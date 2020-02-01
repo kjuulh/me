@@ -1,15 +1,19 @@
-<nav id="navbar">
-  <div class="content" [ngClass]="{ static: static }">
-    <div class="container">
-      <img src="/assets/Vector.svg" alt="logo" class="logo" />
-      <ul *ngIf="!menu">
-        <li>About</li>
-        <li>Projects</li>
-        <li>Contact</li>
+<nav class="navbar">
+  <div
+    class="navbar__content"
+    [ngClass]="{ 'navbar__content--static': static }"
+  >
+    <div class="navbar__container">
+      <img class="navbar__logo" src="/assets/Vector.svg" alt="logo" />
+      <ul *ngIf="!menu" class="navbar__links navbar__links--desktop">
+        <li class="navbar__link_item">About</li>
+        <li class="navbar__link_item">Projects</li>
+        <li class="navbar__link_item">Contact</li>
       </ul>
-      <div *ngIf="menu" class="menu">
-        <div class="breaker"></div>
-      </div>
+      <app-menu-button
+        *ngIf="menu"
+        class="navbar__links navbar__links--mobile"
+      ></app-menu-button>
     </div>
   </div>
 </nav>

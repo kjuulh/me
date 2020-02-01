@@ -1,7 +1,7 @@
 @import "styles/colors";
 
-#navbar {
-  .content {
+.navbar {
+  &__content {
     height: 60px;
     background: darken($secondary, 2);
     display: flex;
@@ -9,80 +9,51 @@
     justify-content: center;
     border-bottom: 2px solid $accent;
 
-    .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 60%;
-      letter-spacing: 1px;
-
-      .logo {
-        color: $accent;
-        height: 40px;
-        width: 40px;
-      }
-
-      ul {
-        display: flex;
-        list-style-type: none;
-
-        li {
-          margin-left: 20px;
-          text-transform: uppercase;
-          color: $primary;
-        }
-      }
-
-      .menu {
-        height: 16px;
-        width: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        &::before {
-          content: "";
-          display: block;
-          width: 100%;
-          height: 2px;
-          background-color: $accent;
-        }
-
-        &::after {
-          content: "";
-          display: block;
-          width: 100%;
-          height: 2px;
-          background-color: $accent;
-        }
-
-        .breaker {
-          display: block;
-          width: 100%;
-          height: 2px;
-          background-color: $accent;
-        }
-      }
-    }
-
-    &.static {
+    &--static {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
     }
   }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    letter-spacing: 1px;
+  }
+
+  &__logo {
+    color: $accent;
+    height: 40px;
+    width: 40px;
+  }
+
+  &__links {
+    &--desktop {
+      display: flex;
+      list-style-type: none;
+    }
+  }
+
+  &__link_item {
+    margin-left: 20px;
+    text-transform: uppercase;
+    color: $primary;
+  }
 }
 
 @media only screen and (max-width: 600px) {
   /* Styles */
-  #navbar .content .container {
-    width: 90%;
 
-    ul {
-      li {
-        margin-left: 10px;
-      }
+  .navbar {
+    &__container {
+      width: 90%;
+    }
+    &__link_item {
+      margin-left: 10px;
     }
   }
 }

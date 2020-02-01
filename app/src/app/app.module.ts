@@ -12,6 +12,7 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { AboutComponent } from "./components/about/about.component";
 import { BadgeComponent } from "./components/badge/badge.component";
 import { CanvasComponent } from "./components/canvas/canvas.component";
+import { MenuButtonComponent } from './components/menu-button/menu-button.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CanvasComponent } from "./components/canvas/canvas.component";
     NavbarComponent,
     AboutComponent,
     BadgeComponent,
-    CanvasComponent
+    CanvasComponent,
+    MenuButtonComponent
   ],
   imports: [
     MaterialModule,
