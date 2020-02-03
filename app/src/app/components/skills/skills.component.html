@@ -1,0 +1,36 @@
+<section class="skills">
+  <div class="skills__container">
+    <h2 class="skills__heading">Technical skills</h2>
+    <p class="skills__description">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus et ad,
+      veniam totam cupiditate molestias explicabo, quisquam reiciendis cumque
+      soluta illo dolor delectus dicta repellat minima placeat eveniet inventore
+      neque voluptates ipsum assumenda, distinctio hic illum! Repudiandae quam
+      sit sint.
+    </p>
+    <ul class="skills__technologies">
+      <li class="skills__technology" *ngFor="let technology of technologies">
+        {{ technology }}
+      </li>
+    </ul>
+    <h3 class="skills__used-tools">Frequently used tools</h3>
+    <div class="skills__lists">
+      <div class="skills__frameworks">
+        <h4 class="skills__frameworks-title">Frameworks</h4>
+        <ul class="skills__frameworks-list">
+          <li class="skills__framework-list-item" *ngFor="let f of frameworks">
+            {{ f }}
+          </li>
+        </ul>
+      </div>
+      <div class="skills__software">
+        <h4 class="skills__software-title">Software</h4>
+        <ul class="skills__software-list">
+          <li class="skills__software-list-item" *ngFor="let s of software">
+            {{ s }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

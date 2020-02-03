@@ -15,6 +15,10 @@ import { CanvasComponent } from "./components/canvas/canvas.component";
 import { MenuButtonComponent } from "./components/menu-button/menu-button.component";
 
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { SkillsComponent } from './components/skills/skills.component';
+import { ExperienceComponent } from './components/experience/experience.component';
+import { WorkComponent } from './components/work/work.component';
+import { ProjectComponent } from './components/project/project.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
     AboutComponent,
     BadgeComponent,
     CanvasComponent,
-    MenuButtonComponent
+    MenuButtonComponent,
+    SkillsComponent,
+    ExperienceComponent,
+    WorkComponent,
+    ProjectComponent
   ],
   imports: [
     MaterialModule,

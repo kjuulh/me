@@ -1,6 +1,11 @@
 @import "styles/colors";
 
 .navbar {
+  &__hidden {
+    height: 60px;
+    background: darken($secondary, 2);
+  }
+
   &__content {
     height: 60px;
     background: darken($secondary, 2);

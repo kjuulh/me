@@ -1,0 +1,17 @@
+<div class="work">
+  <h3 class="work__position">{{ work.position }}</h3>
+  <ul class="work__skills">
+    <li class="work__skill" *ngFor="let skill of work.focus">
+      {{ skill }}
+    </li>
+  </ul>
+  <p class="work__description">{{ work.description }}</p>
+  <div class="work__footer">
+    <div class="work__company">
+      <strong>Company: </strong> {{ work.company }}
+    </div>
+    <div class="work__period">
+      <strong>Period: </strong> {{ work.start }} - {{ work.end }}
+    </div>
+  </div>
+</div>

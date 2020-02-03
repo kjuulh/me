@@ -1,0 +1,109 @@
+@import "styles/colors";
+
+.skills {
+  background-color: $secondary;
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    padding: 8em 0;
+    width: 60%;
+  }
+
+  &__heading {
+    color: $accent;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 1em;
+    font-size: 2em;
+    letter-spacing: 0.1em;
+  }
+
+  &__description {
+    color: darken($primary, 30);
+    text-align: center;
+    margin-bottom: 3em;
+  }
+
+  &__technologies {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0 0 3em;
+  }
+
+  &__technology {
+    margin: 0 1em;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: $primary;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+  }
+
+  &__used-tools {
+    color: $primary;
+    font-size: 1.4em;
+    text-align: center;
+    letter-spacing: 0.2em;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  &__lists {
+    display: grid;
+    grid-template-areas: "frameworks software";
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  &__frameworks,
+  &__software {
+  }
+
+  &__frameworks-title,
+  &__software-title {
+    color: darken($primary, 10);
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+  }
+
+  &__frameworks-list,
+  &__software-list {
+    padding-left: 2.5em;
+    color: darken($primary, 20);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  /* Styles */
+
+  .skills {
+    &__container {
+      width: 90%;
+    }
+
+    &__technologies {
+      flex-flow: column;
+      text-align: center;
+    }
+
+    &__technology {
+      margin: 0.6em 0;
+    }
+
+    &__lists {
+      grid-template-areas:
+        "frameworks"
+        "software";
+      grid-template-columns: 1fr;
+    }
+  }
+}

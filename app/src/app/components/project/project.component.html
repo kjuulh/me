@@ -1,0 +1,24 @@
+<div
+  class="project"
+  (click)="navigateTo(project.link)"
+  (mouseover)="hover(true)"
+  (mouseout)="hover(false)"
+>
+  <div
+    class="project__container"
+    [ngClass]="{ 'project__container--shown': hovering }"
+  >
+    <h3 class="project__name">
+      {{ project.name }}
+    </h3>
+
+    <ul class="project__technologies">
+      <li
+        class="project__technology"
+        *ngFor="let technology of project.technologies"
+      >
+        {{ technology }}
+      </li>
+    </ul>
+  </div>
+</div>

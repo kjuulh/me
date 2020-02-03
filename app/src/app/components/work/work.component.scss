@@ -1,0 +1,71 @@
+@import "styles/colors";
+
+.work {
+  max-width: 50em;
+
+  &__position {
+    font-size: 1.2em;
+    color: $primary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 1.5em;
+  }
+
+  &__skills {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 1.5em;
+  }
+
+  &__skill {
+    color: darken($primary, 20);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 1em;
+  }
+
+  &__description {
+    text-align: center;
+    color: darken($primary, 30);
+    margin-bottom: 1.5em;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__company,
+  &__period {
+    color: darken($primary, 20);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  /* Styles */
+
+  .work {
+    &__container {
+      max-width: none;
+    }
+
+    &__skills {
+      flex-flow: column;
+    }
+
+    &__skill {
+      margin-bottom: 0.5em;
+    }
+
+    &__footer {
+      flex-flow: column;
+      text-align: center;
+    }
+  }
+}
