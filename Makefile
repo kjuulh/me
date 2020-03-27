@@ -1,7 +1,5 @@
-
-
 build-prod:
-  yarn --cwd "./app"
+	yarn --cwd "./app"
 	yarn --cwd "./app" build
 	mv ./app/dist .
 
