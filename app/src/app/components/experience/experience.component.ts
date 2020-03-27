@@ -8,10 +8,18 @@ import { Component, OnInit } from "@angular/core";
 export class ExperienceComponent implements OnInit {
   work = [
     {
+      position: "Associate Software Engineer",
+      focus: ["Software Engineer", "Backend Development", "Crypto-services"],
+      company: "Danske Bank",
+      description: "",
+      start: "01-02-2020",
+      end: ""
+    },
+    {
       position: "Intern Software Engineer",
       focus: ["Software Engineering", "Backend Development"],
-      company: "Dankse Bank",
-      description: "asljdf lasjdlfasl;djflasdflkasldk fl;aksdfl;kasl;kdf",
+      company: "Danske Bank",
+      description: "",
       start: "01-9-2018",
       end: "01-01-2019"
     }
