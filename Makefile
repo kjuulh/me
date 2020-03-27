@@ -1,5 +1,9 @@
 
 
+build-prod:
+	yarn --cwd "./app" build
+	mv ./app/dist .
+
 docker-build:
 	docker build -f build/Dockerfile -t kjuulh/me:dev .
 
