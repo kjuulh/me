@@ -1,0 +1,4 @@
+config:
+  gcp:project: kjuulh-me
+  gcp:region: europe-west1
+  pulumi:template: gcp-typescript

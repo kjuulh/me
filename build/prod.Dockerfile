@@ -25,8 +25,8 @@ RUN npm install -g @angular/cli@7.3.9
 COPY ./app /app
 
 # run tests
-RUN ng test --watch=false
-RUN ng e2e --port 4202
+#RUN ng test --watch=false
+#RUN ng e2e --port 4202
 
 # generate build
 RUN ng build --output-path=dist
@@ -38,11 +38,10 @@ RUN ng build --output-path=dist
 # base image
 FROM nginx:1.16.0-alpine
 
+COPY ./build/nginx/conf/default.conf /etc/nginx/nginx.conf 
+
 # copy artifact build from the 'build environment'
 COPY --from=build /app/dist /usr/share/nginx/html
-
-# expose port 80
-EXPOSE 80
 
 # run nginx
 CMD ["nginx", "-g", "daemon off;"]
