@@ -198,11 +198,6 @@
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-9.1.0.tgz#b61aeec3469f0f33fec7bd30e6ad729cdf10b160"
   integrity sha512-2f8ECoXrj40oS1rtIfi+F8T4WPzundcZDs8WMFNBuWYbk14v1S9sTgMEmZyePHGkPjt6IfYiLJKJCvVgrt1nxQ==
 
-"@angular/material@^9.1.0":
-  version "9.2.0"
-  resolved "https://registry.yarnpkg.com/@angular/material/-/material-9.2.0.tgz#1b6f0a2e115f93885d7fc2dc4b258d8c9cf6821f"
-  integrity sha512-KKzEIVh6/m56m+Ao8p4PK0SyEr0574l3VP2swj1qPag3u+FYgemmXCGTaChrKdDsez+zeTCPXImBGXzE6NQ80Q==
-
 "@angular/platform-browser-dynamic@~9.1.0":
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-9.1.0.tgz#830bd5038d1875736e87e68c3aef44f0f835e418"
@@ -5580,6 +5575,11 @@ neo-async@^2.5.0, neo-async@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
+
+ng-lazyload-image@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/ng-lazyload-image/-/ng-lazyload-image-7.1.0.tgz#8e3428300506e541fb1f4befe7d62cbaffbd2235"
+  integrity sha512-1fip2FdPBDRnjGyBokI/DupBxOnrKh2lbtT8X8N1oPbE3KBZXXl82VIKcK2Sx+XQD67/+VtFzlISmrgsatzYuw==
 
 nice-try@^1.0.4:
   version "1.0.5"

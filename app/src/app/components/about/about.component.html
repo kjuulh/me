@@ -4,7 +4,8 @@
     <div class="about__matter">
       <img
         class="about__photo"
-        src="/assets/me.jpg"
+        [defaultImage]="placeholder"
+        [lazyLoad]="meImage"
         alt="Profile picture of Kasper J. Hermansen"
       />
       <div class="about__description">

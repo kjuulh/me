@@ -16,6 +16,9 @@ export class AboutComponent implements OnInit {
   faGithub = faGithub;
   faLinkedIn = faLinkedin;
 
+  placeholder = "https://www.placecage.com/10/20";
+  meImage = "/assets/me.jpg";
+
   constructor() {}
 
   ngOnInit() {}

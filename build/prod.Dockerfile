@@ -29,7 +29,7 @@ COPY ./app /app
 #RUN ng e2e --port 4202
 
 # generate build
-RUN ng build --prod --output-path=dist
+RUN npm run build --output-path=dist
 
 ############
 ### prod ###
