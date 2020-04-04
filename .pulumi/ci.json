@@ -1,0 +1,4 @@
+{
+  "release/production": "me-prod",
+  "release/staging": "staging"
+}
