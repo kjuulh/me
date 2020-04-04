@@ -32,7 +32,5 @@ jobs:
           destination_branch: "release/production"
           pr_title: "Pulling staging into production"
           pr_body: ":crown: *An automated PR*" # Full markdown support, requires pr_title to be set
-          pr_reviewer: "kjuulh" # Comma-separated list (no spaces)
-          pr_assignee: "kjuulh" # Comma-separated list (no spaces)
           pr_label: "auto-pr" # Comma-separated list (no spaces)
           github_token: ${{ secrets.GITHUB_TOKEN }}
