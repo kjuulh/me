@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: verify label is auto-pr
-        uses: actions/verify-pr-label-action@v1.0.0
+        uses: actions/verify-pr-label-action@v1.1.0
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
           valid-labels: "auto-pr"
