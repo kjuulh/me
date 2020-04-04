@@ -1,5 +1,5 @@
 # Me - My portfolio
 
-![me-staging](https://github.com/kjuulh/me/workflows/Pulumi/badge.svg?branch=release%2Fstaging)
+![deploy-staging](https://github.com/kjuulh/me/workflows/deploy-staging/badge.svg)
 
-![me-production](https://github.com/kjuulh/me/workflows/Pulumi/badge.svg?branch=release%2Fproduction)
+![deploy-production](https://github.com/kjuulh/me/workflows/deploy-prod/badge.svg)
