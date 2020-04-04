@@ -10,14 +10,33 @@ if (!gcpProject) {
   throw new Error('gcpProject not set');
 }
 
+const envGcpCredentials = process.env.GOOGLE_CREDENTIALS;
+
 const meImageName = 'me-app';
-const meImage = new docker.Image(meImageName, {
-  imageName: pulumi.interpolate`gcr.io/${gcpProject}/${meImageName}:v1.0.0`,
-  build: {
-    context: '../',
-    dockerfile: '../build/prod.Dockerfile',
-  },
-});
+let meImage;
+
+if (envGcpCredentials) {
+  meImage = new docker.Image(meImageName, {
+    imageName: pulumi.interpolate`gcr.io/${gcpProject}/${meImageName}:v1.0.0`,
+    build: {
+      context: '../',
+      dockerfile: '../build/prod.Dockerfile',
+    },
+    registry: {
+      server: 'gcr.io',
+      username: '_json_key',
+      password: envGcpCredentials,
+    },
+  });
+} else {
+  meImage = new docker.Image(meImageName, {
+    imageName: pulumi.interpolate`gcr.io/${gcpProject}/${meImageName}:v1.0.0`,
+    build: {
+      context: '../',
+      dockerfile: '../build/prod.Dockerfile',
+    },
+  });
+}
 
 const location = gcp.config.region;
 if (!location) {
