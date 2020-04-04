@@ -1,10 +1,13 @@
 import * as pulumi from '@pulumi/pulumi';
 import * as gcp from '@pulumi/gcp';
+import * as cloudflare from '@pulumi/cloudflare';
 import * as docker from '@pulumi/docker';
+
+const config = new pulumi.Config();
 
 const gcpProject = gcp.config.project;
 if (!gcpProject) {
-  throw new Error('gcpPRoject not set');
+  throw new Error('gcpProject not set');
 }
 
 const meImageName = 'me-app';
@@ -40,11 +43,22 @@ const meService = new gcp.cloudrun.Service('me', {
   },
 });
 
-/* Enable once domainmapping supports subdomains
+interface Custom {
+  subdomain: string;
+  domain: string;
+  cloudflareZoneId: string;
+}
+const getUrl = (c: Custom) => c.subdomain + '.' + c.domain;
+
+const custom = config.requireObject<Custom>('custom');
+if (!custom) {
+  throw new Error('Custom vars not set');
+}
+export const Url = getUrl(custom);
 const meDomainMapping = new gcp.cloudrun.DomainMapping(
   'me-cloudrun-domain-mapping',
   {
-    name: 'me.kjuulh.io',
+    name: getUrl(custom),
     location: location,
     metadata: {
       namespace: gcpProject,
@@ -54,8 +68,21 @@ const meDomainMapping = new gcp.cloudrun.DomainMapping(
     },
   },
 );
-export const domainMappins = meDomainMapping.status.resourceRecords;
-*/
+
+meDomainMapping.status.resourceRecords?.apply(records =>
+  records?.forEach((record, index) => {
+    if (typeof record.type === 'undefined') {
+      throw new Error('Resource type is undefined');
+    }
+    new cloudflare.Record(getUrl(custom) + `-${index}-record`, {
+      name: custom.subdomain,
+      zoneId: custom.cloudflareZoneId,
+      type: record.type,
+      value: record.rrdata,
+      ttl: 1,
+    });
+  }),
+);
 
 const iamMe = new gcp.cloudrun.IamMember('me-everyone', {
   service: meService.name,
@@ -63,5 +90,3 @@ const iamMe = new gcp.cloudrun.IamMember('me-everyone', {
   role: 'roles/run.invoker',
   member: 'allUsers',
 });
-
-export const meUrl = meService.status.url;

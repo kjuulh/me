@@ -1,4 +1,8 @@
 config:
+  gcp-me:custom:
+    subdomain: staging-me
+    domain: kjuulh.io
+    cloudflareZoneId: 18ef0f5bac7498b599961f329f7b7874
   gcp:project: kjuulh-me-staging
   gcp:region: europe-west1
   pulumi:template: gcp-typescript
