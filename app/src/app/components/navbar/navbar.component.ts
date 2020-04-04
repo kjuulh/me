@@ -16,6 +16,8 @@ export class NavbarComponent implements OnInit {
   static: boolean;
   menu = false;
 
+  icon = "/assets/Vector.svg";
+
   constructor(public el: ElementRef) {}
 
   ngOnInit() {

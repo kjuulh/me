@@ -16,6 +16,8 @@ export class AboutComponent implements OnInit {
   faGithub = faGithub;
   faLinkedIn = faLinkedin;
 
+  meImage = "/assets/me.jpg";
+
   constructor() {}
 
   ngOnInit() {}

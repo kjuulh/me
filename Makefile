@@ -13,7 +13,7 @@ docker-run:
 	docker run -d -v ${PWD}/app:/app -v /app/node_modules -p 4201:4200 --name me --rm kjuulh/me:dev
 
 docker-run-prod:
-	docker run -d -p 4201:80 --name me --rm kjuulh/me
+	docker run -it -p 4201:8080 --name me --rm kjuulh/me
 
 docker-test: docker-build docker-run
 	docker exec -it me ng test --watch=false

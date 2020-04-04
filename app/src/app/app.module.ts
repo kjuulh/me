@@ -1,5 +1,4 @@
 import { SentryService } from "./service/sentry.service";
-import { MaterialModule } from "./modules/material/material.module";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, ErrorHandler } from "@angular/core";
 
@@ -21,6 +20,8 @@ import { ExperienceComponent } from "./components/experience/experience.componen
 import { WorkComponent } from "./components/work/work.component";
 import { ProjectComponent } from "./components/project/project.component";
 
+import { LazyLoadImageModule, scrollPreset } from "ng-lazyload-image";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,11 +39,13 @@ import { ProjectComponent } from "./components/project/project.component";
     ProjectComponent
   ],
   imports: [
-    MaterialModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    LazyLoadImageModule.forRoot({
+      preset: scrollPreset
+    })
   ],
   providers: [{ provide: ErrorHandler, useClass: SentryService }],
   bootstrap: [AppComponent]
