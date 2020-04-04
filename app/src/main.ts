@@ -8,11 +8,11 @@ import { environment } from "./environments/environment";
 import LogRocket from "logrocket";
 
 if (environment.production) {
-  LogRocket.init("pqcelz/me-ojlns");
-
   enableProdMode();
 }
 
-platformBrowserDynamic()
+document.addEventListener('DOMContentLoaded', () => {
+  platformBrowserDynamic()
   .bootstrapModule(AppModule)
   .catch(err => console.error(err));
+});

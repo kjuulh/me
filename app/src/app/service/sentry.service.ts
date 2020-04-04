@@ -4,19 +4,19 @@ import LogRocket from "logrocket";
 import { environment } from "../../environments/environment";
 
 if (environment.production) {
+  LogRocket.init("pqcelz/me-ojlns");
   Sentry.init({
-    dsn: "https://b87008aa289548ca9ed981ba1e1e8f5e@sentry.io/5188771"
+    dsn: "https://b87008aa289548ca9ed981ba1e1e8f5e@sentry.io/5188771",
   });
-
-  LogRocket.getSessionURL(sessionUrl => {
-    Sentry.configureScope(scope => {
+  LogRocket.getSessionURL((sessionUrl) => {
+    Sentry.configureScope((scope) => {
       scope.setExtra("sessionURL", sessionUrl);
     });
   });
 }
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class SentryService implements ErrorHandler {
   constructor() {}
