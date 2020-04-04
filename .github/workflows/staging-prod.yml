@@ -1,0 +1,38 @@
+name: Pulumi
+on:
+  push:
+    branches:
+      - release/staging
+jobs:
+  up:
+    name: Update
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: docker://pulumi/actions
+        with:
+          args: up
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.STAGING_GOOGLE_CREDENTIALS }}
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+          CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
+          CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
+          PULUMI_CI: up
+          PULUMI_ROOT: gcp-me
+
+  pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: "release/staging"
+          destination_branch: "release/production"
+          pr_title: "Pulling staging into production"
+          pr_body: ":crown: *An automated PR*" # Full markdown support, requires pr_title to be set
+          pr_reviewer: "kjuulh" # Comma-separated list (no spaces)
+          pr_assignee: "kjuulh" # Comma-separated list (no spaces)
+          pr_label: "auto-pr" # Comma-separated list (no spaces)
+          github_token: ${{ secrets.GITHUB_TOKEN }}
