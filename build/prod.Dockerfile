@@ -29,19 +29,17 @@ COPY ./app /app
 #RUN ng e2e --port 4202
 
 # generate build
-RUN npm run build --output-path=dist
+RUN npm run build:ssr
 
 ############
 ### prod ###
 ############
 
 # base image
-FROM nginx:1.16.0-alpine
-
-COPY ./build/nginx/conf/default.conf /etc/nginx/nginx.conf 
+FROM node:13.12-alpine
 
 # copy artifact build from the 'build environment'
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=build /app/dist /dist
 
 # run nginx
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["node", "/dist/Me/server/main.js"]

@@ -39,7 +39,7 @@ import { LazyLoadImageModule, scrollPreset } from "ng-lazyload-image";
     ProjectComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
