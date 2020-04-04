@@ -5,7 +5,7 @@
     [ngClass]="{ 'navbar__content--static': static }"
   >
     <div class="navbar__container">
-      <img class="navbar__logo" src="/assets/Vector.svg" alt="logo" />
+      <img class="navbar__logo" [lazyLoad]="icon" alt="logo" />
       <ul *ngIf="!menu" class="navbar__links navbar__links--desktop">
         <li class="navbar__link_item">About</li>
         <li class="navbar__link_item">Projects</li>

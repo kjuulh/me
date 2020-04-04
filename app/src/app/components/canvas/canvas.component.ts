@@ -11,14 +11,10 @@ declare var particlesJS: any;
 export class CanvasComponent implements OnInit {
   ngOnInit() {
     // particlesJS("particles-js", "assets/data/particles.json");
-    // new Promise(() => {
-    //   setTimeout(() => {
-    //     particlesJS.load(
-    //       "particles-js",
-    //       "assets/data/particlesjs-config.json",
-    //       () => console.log("loaded")
-    //     );
-    //   }, 3000);
-    // });
+    particlesJS.load(
+      "particles-js",
+      "assets/data/particlesjs-config.json",
+      () => console.log("loaded")
+    );
   }
 }
