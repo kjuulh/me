@@ -1,10 +1,8 @@
-import { SentryService } from "./service/sentry.service";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, ErrorHandler } from "@angular/core";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HomeComponent } from "./pages/home/home.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { ProjectsComponent } from "./components/projects/projects.component";
@@ -21,6 +19,7 @@ import { WorkComponent } from "./components/work/work.component";
 import { ProjectComponent } from "./components/project/project.component";
 
 import { LazyLoadImageModule, scrollPreset } from "ng-lazyload-image";
+import { SentryService } from "./service/sentry.service";
 
 @NgModule({
   declarations: [
@@ -36,18 +35,17 @@ import { LazyLoadImageModule, scrollPreset } from "ng-lazyload-image";
     SkillsComponent,
     ExperienceComponent,
     WorkComponent,
-    ProjectComponent
+    ProjectComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule.withServerTransition({ appId: "serverApp" }),
     AppRoutingModule,
-    BrowserAnimationsModule,
     FontAwesomeModule,
     LazyLoadImageModule.forRoot({
-      preset: scrollPreset
-    })
+      preset: scrollPreset,
+    }),
   ],
   providers: [{ provide: ErrorHandler, useClass: SentryService }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
