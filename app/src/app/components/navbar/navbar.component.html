@@ -7,9 +7,9 @@
     <div class="navbar__container">
       <img class="navbar__logo" [lazyLoad]="icon" alt="logo" />
       <ul *ngIf="!menu" class="navbar__links navbar__links--desktop">
-        <li class="navbar__link_item">About</li>
-        <li class="navbar__link_item">Projects</li>
-        <li class="navbar__link_item">Contact</li>
+        <li class="navbar__link_item" (click)="about()">About</li>
+        <li class="navbar__link_item" (click)="skills()">Skills</li>
+        <li class="navbar__link_item" (click)="experience()">Experience</li>
       </ul>
       <app-menu-button
         *ngIf="menu"
