@@ -10,5 +10,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {}
 
-  clickedButton() {}
+  clickedButton() {
+      document.querySelector(".about").scrollIntoView({behavior: 'smooth'})
+  }
 }

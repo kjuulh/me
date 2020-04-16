@@ -47,4 +47,16 @@ export class NavbarComponent implements OnInit {
       this.menu = true;
     }
   }
+
+  about() {
+    document.querySelector(".about").scrollIntoView({behavior: 'smooth'})
+  }
+
+  skills() {
+    document.querySelector(".skills").scrollIntoView({behavior: 'smooth'})
+  }
+
+  experience() {
+    document.querySelector(".experience").scrollIntoView({behavior: 'smooth'})
+  }
 }

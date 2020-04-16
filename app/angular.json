@@ -28,7 +28,10 @@
             "scripts": ["node_modules/particles.js/particles.js"],
             "stylePreprocessorOptions": {
               "includePaths": ["./src", "./src/styles"]
-            }
+            },
+            "styles": [
+              "src/styles.scss"
+            ]
           },
           "configurations": {
             "production": {
