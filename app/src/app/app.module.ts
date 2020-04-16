@@ -1,5 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, ErrorHandler } from "@angular/core";
+import { ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -20,6 +21,7 @@ import { ProjectComponent } from "./components/project/project.component";
 
 import { LazyLoadImageModule, scrollPreset } from "ng-lazyload-image";
 import { SentryService } from "./service/sentry.service";
+import { ContactComponent } from "./components/contact/contact.component";
 
 @NgModule({
   declarations: [
@@ -36,11 +38,13 @@ import { SentryService } from "./service/sentry.service";
     ExperienceComponent,
     WorkComponent,
     ProjectComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
     AppRoutingModule,
     FontAwesomeModule,
+    ReactiveFormsModule,
     LazyLoadImageModule.forRoot({
       preset: scrollPreset,
     }),

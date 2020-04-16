@@ -57,6 +57,10 @@
     &:active {
       color: $alt-accent;
     }
+
+    &--highlighted {
+      color: $accent;
+    }
   }
 }
 

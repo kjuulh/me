@@ -1,0 +1,142 @@
+@import "styles/colors";
+
+.contact {
+  padding: 8em 0 2em 0;
+  background-color: $secondary;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  &__container {
+    width: 70%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  &__title {
+    margin: 0;
+    text-align: center;
+    font-style: 2em;
+    letter-spacing: 0.1em;
+    color: $accent;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 2em;
+  }
+
+  &__form {
+    width: 60%;
+    display: grid;
+    grid-template-areas:
+      "firstname lastname"
+      "email email"
+      "message message"
+      "submit submit";
+    grid-template-columns: repeat(1fr, 2);
+    column-gap: 2rem;
+    row-gap: 2rem;
+
+    & > div {
+      width: 100%;
+      min-height: 5rem;
+
+      label {
+        display: block;
+        text-align-last: left;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        font-weight: 300;
+        color: $primary;
+      }
+      input,
+      textarea {
+        width: 100%;
+        background: none;
+        border: none;
+        border-bottom: 1px solid desaturate($accent, 40%);
+        margin: 0.2rem 0;
+        padding: 0.5rem 0;
+        color: $primary;
+        font-size: 1rem;
+        outline: none;
+        line-height: 1rem;
+        transition: border-bottom 200ms ease-in-out;
+        overflow: hidden;
+        resize: none;
+
+        &:focus {
+          border-bottom: 2px solid $accent;
+        }
+      }
+
+      button {
+        padding: 0.6rem 1rem;
+        border-radius: 0.2rem;
+        background: none;
+        border: 1px solid $accent;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        color: $accent;
+        font-weight: 200;
+        outline: none;
+        transition: border-color 100ms ease-in, color 100ms ease-in;
+
+        &:disabled {
+          border-color: desaturate($color: $accent, $amount: 50%);
+          color: desaturate($color: $accent, $amount: 50%);
+        }
+
+        &:hover {
+          border-color: $alt-accent;
+          color: $alt-accent;
+        }
+
+        &:active {
+          border-color: $primary;
+          color: $primary;
+        }
+      }
+    }
+  }
+
+  &__first-name {
+    grid-area: firstname;
+  }
+
+  &__last-name {
+    grid-area: lastname;
+  }
+
+  &__email {
+    grid-area: email;
+  }
+
+  &__message {
+    grid-area: message;
+  }
+
+  &__submit {
+    grid-area: submit;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  /* Styles */
+
+  .contact {
+    &__container {
+      width: 90%;
+    }
+
+    &__form {
+      width: 100%;
+      grid-template-areas:
+        "firstname"
+        "lastname"
+        "email"
+        "message"
+        "submit";
+    }
+  }
+}
