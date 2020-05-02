@@ -1,7 +1,7 @@
 {
     "name": "gcp-me",
     "devDependencies": {
-        "@types/node": "^8.0.0"
+        "@types/node": "^13.13.4"
     },
     "dependencies": {
         "@pulumi/cloudflare": "^1.9.0",
