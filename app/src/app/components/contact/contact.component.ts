@@ -1,5 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
+import { ConfigService } from "src/app/service/config.service";
 
 @Component({
   selector: "app-contact",
@@ -14,7 +15,11 @@ export class ContactComponent implements OnInit {
     message: new FormControl(""),
   });
 
-  constructor() {}
+  constructor(private configService: ConfigService) {
+    this.configService.config$.subscribe((data) => {
+      console.dir(data);
+    });
+  }
 
   ngOnInit(): void {}
 }
