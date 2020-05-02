@@ -87,12 +87,12 @@
           color: desaturate($color: $accent, $amount: 50%);
         }
 
-        &:hover {
+        &:hover:enabled {
           border-color: $alt-accent;
           color: $alt-accent;
         }
 
-        &:active {
+        &:active:enabled {
           border-color: $primary;
           color: $primary;
         }

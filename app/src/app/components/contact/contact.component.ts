@@ -21,18 +21,11 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {}
 
   submitContactForm() {
-    this.contact
-      .addContact({
-        email: "hermansendev@gmail.com",
-        firstName: "kasper",
-        lastName: "hermansen",
-        message: "My message",
-      })
-      .subscribe(
-        (data: Contact) => {
-          console.dir(data);
-        },
-        (err) => console.error(err)
-      );
+    this.contact.addContact(this.contactForm.value).subscribe(
+      (data: Contact) => {
+        console.dir(data);
+      },
+      (err) => console.error(err)
+    );
   }
 }
