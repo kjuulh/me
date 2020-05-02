@@ -41,7 +41,7 @@ if (envGcpCredentials) {
 const meMail = new gcp.cloudfunctions.HttpCallbackFunction(
   "me-mail-function",
   (req, res) => {
-    res.set("Access-Control-Allow-Origin", `https://${Url}.com`);
+    res.set("Access-Control-Allow-Origin", `https://${Url}`);
 
     if (req.method === "OPTIONS") {
       // Send response to OPTIONS requests
