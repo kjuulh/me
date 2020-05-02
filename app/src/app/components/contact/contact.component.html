@@ -3,25 +3,46 @@
     <h2 class="contact__title">
       Contact
     </h2>
-    <form class="contact__form" [formGroup]="contactForm">
+    <form
+      class="contact__form"
+      [formGroup]="contactForm"
+      (ngSubmit)="submitContactForm()"
+    >
       <div class="contact__first-name">
         <label>First name</label>
-        <input type="text" fromControlName="firstName" />
+        <input
+          type="text"
+          formControlName="firstName"
+          autocomplete="given-name"
+          required
+        />
       </div>
       <div class="contact__last-name">
         <label>Last name</label>
-        <input type="text" fromControlName="lastName" />
+        <input
+          type="text"
+          formControlName="lastName"
+          autocomplete="family-name"
+          required
+        />
       </div>
       <div class="contact__email">
         <label>Email</label>
-        <input type="email" fromControlName="email" />
+        <input
+          type="email"
+          formControlName="email"
+          autocomplete="email"
+          required
+        />
       </div>
       <div class="contact__message">
         <label>Message</label>
-        <textarea fromControlName="message" rows="6"> </textarea>
+        <textarea formControlName="message" rows="6" required> </textarea>
       </div>
       <div class="contact__submit">
-        <button>Send message</button>
+        <button type="submit" [disabled]="!contactForm.valid">
+          Send message
+        </button>
       </div>
     </form>
   </div>

@@ -55,15 +55,13 @@ import { AppConfig } from "./models/app.config";
   ],
   providers: [
     { provide: ErrorHandler, useClass: SentryService },
+    ConfigService,
     {
       provide: APP_INITIALIZER,
-      useFactory: (http: HttpClient, configService: ConfigService) => {
-        return () => {
-          configService.config$ = http.get<AppConfig>("/api/config");
-        };
-      },
+      useFactory: (configService: ConfigService) => configService.initApp(),
+
       multi: true,
-      deps: [HttpClient, ConfigService],
+      deps: [ConfigService],
     },
   ],
   bootstrap: [AppComponent],
