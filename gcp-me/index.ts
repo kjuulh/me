@@ -75,6 +75,12 @@ const meService = new gcp.cloudrun.Service("me", {
               memory: "1Gi",
             },
           },
+          envs: [
+            {
+              name: "MAIL_URL",
+              value: meMailUrl,
+            },
+          ],
         },
       ],
       containerConcurrency: 2,

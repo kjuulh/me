@@ -27,8 +27,11 @@ export function app() {
   server.set("view engine", "html");
   server.set("views", distFolder);
 
-  // Example Express Rest API endpoints
-  // server.get('/api/**', (req, res) => { });
+  server.get("/api/config", (req, res) => {
+    res.json({
+      mailUrl: process.env.MAIL_URL || "http://localhost:8080",
+    });
+  });
   // Serve static files from /browser
   server.get(
     "*.*",

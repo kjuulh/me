@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule, ErrorHandler } from "@angular/core";
+import { NgModule, ErrorHandler, APP_INITIALIZER } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -22,6 +22,9 @@ import { ProjectComponent } from "./components/project/project.component";
 import { LazyLoadImageModule, scrollPreset } from "ng-lazyload-image";
 import { SentryService } from "./service/sentry.service";
 import { ContactComponent } from "./components/contact/contact.component";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { ConfigService } from "./service/config.service";
+import { AppConfig } from "./models/app.config";
 
 @NgModule({
   declarations: [
@@ -45,11 +48,24 @@ import { ContactComponent } from "./components/contact/contact.component";
     AppRoutingModule,
     FontAwesomeModule,
     ReactiveFormsModule,
+    HttpClientModule,
     LazyLoadImageModule.forRoot({
       preset: scrollPreset,
     }),
   ],
-  providers: [{ provide: ErrorHandler, useClass: SentryService }],
+  providers: [
+    { provide: ErrorHandler, useClass: SentryService },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (http: HttpClient, configService: ConfigService) => {
+        return () => {
+          configService.config$ = http.get<AppConfig>("/api/config");
+        };
+      },
+      multi: true,
+      deps: [HttpClient, ConfigService],
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
