@@ -1,5 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule, ErrorHandler } from "@angular/core";
+import { NgModule, ErrorHandler, APP_INITIALIZER } from "@angular/core";
+import { ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -20,6 +21,10 @@ import { ProjectComponent } from "./components/project/project.component";
 
 import { LazyLoadImageModule, scrollPreset } from "ng-lazyload-image";
 import { SentryService } from "./service/sentry.service";
+import { ContactComponent } from "./components/contact/contact.component";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { ConfigService } from "./service/config.service";
+import { AppConfig } from "./models/app.config";
 
 @NgModule({
   declarations: [
@@ -36,16 +41,29 @@ import { SentryService } from "./service/sentry.service";
     ExperienceComponent,
     WorkComponent,
     ProjectComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
     AppRoutingModule,
     FontAwesomeModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     LazyLoadImageModule.forRoot({
       preset: scrollPreset,
     }),
   ],
-  providers: [{ provide: ErrorHandler, useClass: SentryService }],
+  providers: [
+    { provide: ErrorHandler, useClass: SentryService },
+    ConfigService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (configService: ConfigService) => configService.initApp(),
+
+      multi: true,
+      deps: [ConfigService],
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

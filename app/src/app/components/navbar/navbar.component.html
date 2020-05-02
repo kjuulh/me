@@ -10,6 +10,12 @@
         <li class="navbar__link_item" (click)="about()">About</li>
         <li class="navbar__link_item" (click)="skills()">Skills</li>
         <li class="navbar__link_item" (click)="experience()">Experience</li>
+        <li
+          class="navbar__link_item navbar__link_item--highlighted"
+          (click)="contact()"
+        >
+          Contact
+        </li>
       </ul>
       <app-menu-button
         *ngIf="menu"

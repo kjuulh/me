@@ -49,14 +49,20 @@ export class NavbarComponent implements OnInit {
   }
 
   about() {
-    document.querySelector(".about").scrollIntoView({behavior: 'smooth'})
+    document.querySelector(".about").scrollIntoView({ behavior: "smooth" });
   }
 
   skills() {
-    document.querySelector(".skills").scrollIntoView({behavior: 'smooth'})
+    document.querySelector(".skills").scrollIntoView({ behavior: "smooth" });
   }
 
   experience() {
-    document.querySelector(".experience").scrollIntoView({behavior: 'smooth'})
+    document
+      .querySelector(".experience")
+      .scrollIntoView({ behavior: "smooth" });
+  }
+
+  contact() {
+    document.querySelector(".contact").scrollIntoView({ behavior: "smooth" });
   }
 }
