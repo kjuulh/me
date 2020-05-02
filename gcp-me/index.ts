@@ -41,7 +41,7 @@ if (envGcpCredentials) {
 const meMail = new gcp.cloudfunctions.HttpCallbackFunction(
   "me-mail-function",
   (req, res) => {
-    res.send(`Greetings from ${req.body.name || "Google Cloud Functions"}!`);
+    res.json(req.body);
   }
 );
 

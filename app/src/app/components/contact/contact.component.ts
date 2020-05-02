@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormBuilder, Validators } from "@angular/forms";
 import { ConfigService } from "src/app/service/config.service";
+import { ContactService, Contact } from "src/app/service/contact.service";
 
 @Component({
   selector: "app-contact",
@@ -8,18 +9,30 @@ import { ConfigService } from "src/app/service/config.service";
   styleUrls: ["./contact.component.scss"],
 })
 export class ContactComponent implements OnInit {
-  contactForm = new FormGroup({
-    firstName: new FormControl(""),
-    lastName: new FormControl(""),
-    email: new FormControl(""),
-    message: new FormControl(""),
+  contactForm = this.fb.group({
+    firstName: ["", Validators.required],
+    lastName: ["", Validators.required],
+    email: ["", Validators.required],
+    message: ["", Validators.required],
   });
 
-  constructor(private configService: ConfigService) {
-    this.configService.config$.subscribe((data) => {
-      console.dir(data);
-    });
-  }
+  constructor(private fb: FormBuilder, private contact: ContactService) {}
 
   ngOnInit(): void {}
+
+  submitContactForm() {
+    this.contact
+      .addContact({
+        email: "hermansendev@gmail.com",
+        firstName: "kasper",
+        lastName: "hermansen",
+        message: "My message",
+      })
+      .subscribe(
+        (data: Contact) => {
+          console.dir(data);
+        },
+        (err) => console.error(err)
+      );
+  }
 }

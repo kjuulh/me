@@ -6,22 +6,30 @@
     <form class="contact__form" [formGroup]="contactForm">
       <div class="contact__first-name">
         <label>First name</label>
-        <input type="text" fromControlName="firstName" />
+        <input
+          type="text"
+          fromControlName="firstName"
+          autocomplete="given-name"
+        />
       </div>
       <div class="contact__last-name">
         <label>Last name</label>
-        <input type="text" fromControlName="lastName" />
+        <input
+          type="text"
+          fromControlName="lastName"
+          autocomplete="family-name"
+        />
       </div>
       <div class="contact__email">
         <label>Email</label>
-        <input type="email" fromControlName="email" />
+        <input type="email" fromControlName="email" autocomplete="email" />
       </div>
       <div class="contact__message">
         <label>Message</label>
         <textarea fromControlName="message" rows="6"> </textarea>
       </div>
       <div class="contact__submit">
-        <button>Send message</button>
+        <button (click)="submitContactForm()">Send message</button>
       </div>
     </form>
   </div>
