@@ -23,9 +23,12 @@ export class ContactComponent implements OnInit {
   submitContactForm() {
     this.contact.addContact(this.contactForm.value).subscribe(
       (data: Contact) => {
-        console.dir(data);
+        alert("Succesfully sent!");
       },
-      (err) => console.error(err)
+      (err) => console.error(err),
+      () => {
+        this.contactForm.reset();
+      }
     );
   }
 }

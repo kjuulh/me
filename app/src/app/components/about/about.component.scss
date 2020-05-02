@@ -59,16 +59,19 @@
   &__sm-item {
     font-size: 1.6em;
     margin: 0 0.5em;
-    color: $primary;
     transition: 300ms color;
 
-    &:hover {
-      color: $accent;
-      cursor: pointer;
-    }
+    a {
+      color: $primary;
 
-    &:active {
-      color: $alt-accent;
+      &:hover {
+        color: $accent;
+        cursor: pointer;
+      }
+
+      &:active {
+        color: $alt-accent;
+      }
     }
   }
 }
