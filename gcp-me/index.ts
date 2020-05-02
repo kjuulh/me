@@ -51,7 +51,7 @@ const meMailInvoker = new gcp.cloudfunctions.FunctionIamMember(
     project: meMail.function.project,
     region: meMail.function.region,
     cloudFunction: meMail.function.name,
-    role: "roles/cloudfunction.invoker",
+    role: "roles/cloudfunctions.invoker",
     member: "allUsers",
   }
 );
